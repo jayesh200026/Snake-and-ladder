@@ -1,43 +1,87 @@
 public class SnakenLadder {
 
 	public static void main(String[] args) {
-		int stating_position = 0;
-		int current_position = 0;
-		int count=0;
-		System.out.println("Initial position of the player is::" + stating_position);
-
+		int count1 = 0;
+		int current_pos1 = 0;
+		int count2 = 0;
+		int current_pos2 = 0;
+		int outcome1, option1, outcome2, option2;
 		while (true) {
-			int outcome = (int) (Math.floor(Math.random() * 10) % 6);
-			int option = (int) (Math.floor(Math.random() * 10) % 3);
-			
-			count+=1;
-
-			// option=0 means Noway 1 means Ladder 2 means snake
-			switch (option) {
-			case 1:
-				if (current_position + outcome > 100) {
-					current_position = current_position + 0;
-				} else {
-					current_position += outcome;
-				}
+			if (current_pos2 == 100) {
+				System.out.println("Player2 is the winner");
 				break;
-			case 2:
-				if (current_position - outcome < 0) {
-					current_position = 0;
+			}
+
+			outcome1 = (int) (Math.floor(Math.random() * 10) % 6);
+			option1 = (int) (Math.floor(Math.random() * 10) % 3);
+			count1 += 1;
+			switch (option1) {
+			case 1:
+				if (current_pos1 + outcome1 > 100) {
+					current_pos1 = current_pos1 + 0;
 				} else {
-					current_position -= outcome;
+					current_pos1 += outcome1;
 				}
+
+				continue;
+			case 2:
+				if (current_pos1 - outcome1 < 0) {
+					current_pos1 = 0;
+				} else {
+					current_pos1 -= outcome1;
+				}
+
 				break;
 
 			default:
-				current_position += 0;
+				current_pos1 += 0;
 
 			}
-			System.out.println("Current position after "+count+" die roll is "+current_position);
-			if (current_position == 100) {
+			System.out.println("Current position player1 after " + count1 + " die roll is " + current_pos1);
+			if (current_pos1 == 100) {
+				System.out.println("Player1 is the winner");
 				break;
 			}
+
+			while (true) {
+				outcome2 = (int) (Math.floor(Math.random() * 10) % 6);
+				option2 = (int) (Math.floor(Math.random() * 10) % 3);
+				count2 += 1;
+
+				switch (option2) {
+				case 1:
+					if (current_pos2 + outcome2 > 100) {
+						current_pos2 = current_pos2 + 0;
+					} else {
+						current_pos2 += outcome2;
+					}
+
+					continue;
+				case 2:
+					if (current_pos2 - outcome2 < 0) {
+						current_pos2 = 0;
+					} else {
+						current_pos2 -= outcome2;
+					}
+
+					break;
+
+				default:
+					current_pos2 += 0;
+
+				}
+				System.out.println("Current position player2 after " + count2 + " die roll is " + current_pos2);
+				if (current_pos2 == 100) {
+					break;
+				}
+
+				else {
+					break;
+				}
+
+			}
 		}
+
 	}
 
 }
