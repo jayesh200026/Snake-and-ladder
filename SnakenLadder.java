@@ -3,11 +3,14 @@ public class SnakenLadder {
 	public static void main(String[] args) {
 		int stating_position = 0;
 		int current_position = 0;
+		int count=0;
 		System.out.println("Initial position of the player is::" + stating_position);
 
 		while (true) {
 			int outcome = (int) (Math.floor(Math.random() * 10) % 6);
 			int option = (int) (Math.floor(Math.random() * 10) % 3);
+			
+			count+=1;
 
 			// option=0 means Noway 1 means Ladder 2 means snake
 			switch (option) {
@@ -30,7 +33,7 @@ public class SnakenLadder {
 				current_position += 0;
 
 			}
-			System.out.println("players new position after rolling the dice=" + current_position);
+			System.out.println("Current position after "+count+" die roll is "+current_position);
 			if (current_position == 100) {
 				break;
 			}
