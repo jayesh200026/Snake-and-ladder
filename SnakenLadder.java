@@ -12,7 +12,11 @@ public class SnakenLadder {
 			// option=0 means Noway 1 means Ladder 2 means snake
 			switch (option) {
 			case 1:
-				current_position += outcome;
+				if (current_position + outcome > 100) {
+					current_position = current_position + 0;
+				} else {
+					current_position += outcome;
+				}
 				break;
 			case 2:
 				if (current_position - outcome < 0) {
@@ -34,5 +38,4 @@ public class SnakenLadder {
 	}
 
 }
-
 
